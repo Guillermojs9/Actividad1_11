@@ -1,15 +1,12 @@
 package com.mycompany.actividad1_11;
 
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAttribute;
 
-@XmlRootElement
 public class Modulo {
-
-    private String id;
-    private String denominacion;
-    private int horas;
+private String id;
+private String denominacion;
+private int horas;
 
     public Modulo() {
     }
@@ -20,7 +17,7 @@ public class Modulo {
         this.horas = horas;
     }
 
-    @XmlAttribute
+    @XmlAttribute (name = "id")
     public String getId() {
         return id;
     }
@@ -49,7 +46,10 @@ public class Modulo {
 
     @Override
     public String toString() {
-        return "Modulo{" + "id=" + id + ", denominacion=" + denominacion + ", horas=" + horas + '}';
+        return "Modulo{" +
+                "id='" + id + '\'' +
+                ", denominacion='" + denominacion + '\'' +
+                ", horas=" + horas +
+                '}';
     }
-
 }

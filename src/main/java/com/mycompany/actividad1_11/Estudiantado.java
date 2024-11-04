@@ -2,29 +2,33 @@ package com.mycompany.actividad1_11;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
+import java.util.List;
 
-@XmlRootElement(name = "estudiantado")
+@XmlRootElement
 public class Estudiantado {
 
-    private ArrayList<Estudiante> estudiantes;
+    @XmlElement (name = "estudiante")
+    private List<Estudiante> estudiantado;
 
     public Estudiantado() {
-        estudiantes = new ArrayList<>();
     }
 
-    @XmlElement(name = "estudiante")
-    public ArrayList<Estudiante> getEstudiantes() {
-        return estudiantes;
+    public Estudiantado(List<Estudiante> estudiantes) {
+        this.estudiantado = estudiantes;
     }
 
-    public void setEstudiantes(ArrayList<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
+    public List<Estudiante> getEstudiantes() {
+        return estudiantado;
+    }
+
+    public void setEstudiantes(List<Estudiante> estudiantes) {
+        this.estudiantado = estudiantes;
     }
 
     @Override
     public String toString() {
-        return "Estudiantado{" + "estudiantes=" + estudiantes + '}';
+        return "Estudiantado{" +
+                "estudiantes=" + estudiantado +
+                '}';
     }
-
 }

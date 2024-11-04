@@ -1,9 +1,7 @@
 package com.mycompany.actividad1_11;
 
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class Direccion {
 
     private String calle;

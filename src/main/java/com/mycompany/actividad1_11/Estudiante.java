@@ -1,10 +1,10 @@
 package com.mycompany.actividad1_11;
 
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAttribute;
 
-@XmlRootElement
 public class Estudiante {
 
     private int idMatricula;
@@ -12,19 +12,20 @@ public class Estudiante {
     private String telefono;
     private String email;
     private Direccion direccion;
-    private Matricula matricula;
+    private ArrayList<Modulo> matricula;
 
     public Estudiante() {
     }
-
-    public Estudiante(int idMatricula, String nombre, String telefono, String email, Direccion direccion, Matricula matricula) {
+    
+    public Estudiante(int idMatricula, String nombre, Direccion direccion, String telefono, String email, ArrayList<Modulo> matricula) {
         this.idMatricula = idMatricula;
         this.nombre = nombre;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
-        this.direccion = direccion;
         this.matricula = matricula;
     }
+
 
     @XmlAttribute
     public int getIdMatricula() {
@@ -71,12 +72,13 @@ public class Estudiante {
         this.direccion = direccion;
     }
 
-    @XmlElement
-    public Matricula getMatricula() {
+    @XmlElementWrapper(name = "matricula")
+    @XmlElement(name = "modulo")
+    public ArrayList<Modulo> getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Matricula matricula) {
+    public void setMatricula(ArrayList<Modulo> matricula) {
         this.matricula = matricula;
     }
 
